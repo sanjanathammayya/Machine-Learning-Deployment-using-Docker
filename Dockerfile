@@ -1,5 +1,6 @@
 #Mention the base image 
-FROM continuumio/anaconda3:4.4.0
+#FROM continuumio/anaconda3:4.4.0
+FROM python:3.10-slim
 
 #Copy the current folder structure and content to docker folder
 COPY . /usr/ML/app
