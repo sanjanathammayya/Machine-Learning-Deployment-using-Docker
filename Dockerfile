@@ -14,4 +14,5 @@ WORKDIR /usr/ML/app
 RUN pip install -r requirements.txt
 
 #container start up command
-CMD python flask_api.py
+#CMD python flask_api.py
+CMD ["python", "flask_web_api.py"]
