@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Purchase Prediction</title>
+</head>
+<body>
+    <h1>Predict if a Customer Will Buy the Product</h1>
+
+    <!-- Form for Manual Input -->
+    <form action="/predict" method="POST">
+        <label>Age:</label>
+        <input type="number" name="age" required>
+        
+        <label>New User (0 or 1):</label>
+        <input type="number" name="new_user" required>
+        
+        <label>Total Pages Visited:</label>
+        <input type="number" name="total_pages_visited" required>
+        
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+    <p><strong>{{ result }}</strong></p>
+    {% endif %}
+    
+    {% if error %}
+    <p style="color: red;"><strong>{{ error }}</strong></p>
+    {% endif %}
+
+    <hr>
+
+    <!-- File Upload for Batch Prediction -->
+    <h2>Upload a CSV File for Prediction</h2>
+    <form action="/predict_file" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload and Predict</button>
+    </form>
+
+    {% if file_result %}
+    <p><strong>{{ file_result }}</strong></p>
+    {% endif %}
+
+    {% if file_error %}
+    <p style="color: red;"><strong>{{ file_error }}</strong></p>
+    {% endif %}
+</body>
+</html>
